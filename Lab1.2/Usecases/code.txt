@@ -1,0 +1,29 @@
+OVERVIEW
+
+@startuml
+left to right direction
+actor "Admin" as ad
+actor "Staff" as fc
+rectangle ESMS {
+  usecase "Manage Staff" as UC0
+  usecase "Edit permission" as UCh
+  usecase "Manage Product" as UC1
+  usecase "Manage Supplier" as UC2
+  usecase "Manage Customer" as UC3
+  usecase "Register" as UC4
+  usecase "Authenticate" as UC5
+  usecase "Import goods" as UC6
+  usecase "Issue warranty" as UC7
+}
+fc --|> ad
+ad --> UC0
+ad --> UCh
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+fc --> UC5
+fc --> UC6
+fc --> UC7
+@enduml
+

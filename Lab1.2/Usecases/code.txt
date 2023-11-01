@@ -3,7 +3,7 @@ OVERVIEW
 @startuml
 left to right direction
 actor "Admin" as ad
-actor "Staff" as fc
+actor "Staff" as st
 rectangle ESMS {
   usecase "Manage Staff" as UC0
   usecase "Edit permission" as UCh
@@ -15,15 +15,86 @@ rectangle ESMS {
   usecase "Import goods" as UC6
   usecase "Issue warranty" as UC7
 }
-fc --|> ad
-ad --> UC0
-ad --> UCh
-fc --> UC1
-fc --> UC2
-fc --> UC3
-fc --> UC4
-fc --> UC5
-fc --> UC6
-fc --> UC7
+ad -right-|> st
+ad -- UC0
+ad -- UCh
+st -- UC1
+st -- UC2
+st -- UC3
+st -- UC4
+st -- UC5
+st -- UC6
+st -- UC7
 @enduml
 
+
+DETAILS
+
+@startuml
+left to right direction
+actor "Admin" as ad
+actor "Staff" as st
+rectangle ESMS {
+  usecase "1. Find product" as UC1
+usecase "2. Add product" as UC2
+usecase "3. Modify product" as UC3
+usecase "4. Delete product" as UC4
+usecase "5. View supplier's product" as UC5
+usecase "6. Import goods" as UC6
+usecase "7. Export invoice" as UC7
+usecase "8. Issue warranty" as UC8
+usecase "9. Check warranty" as UC9
+usecase "10. View detailed product" as UC10
+usecase "11. Find staff" as UC11
+usecase "13. Delete staff" as UC13
+usecase "12. Modify staff" as UC12
+usecase "14. Create supplier" as UC14
+usecase "15. Modify supplier" as UC15
+usecase "16. Find supplier" as UC16
+usecase "17. View change history of supplier" as UC17
+usecase "18. Delete supplier" as UC18
+usecase "19. View supplier" as UC19
+usecase "20. Register" as UC20
+usecase "21. Authenticatication" as UC21
+usecase "22. Create customer" as UC22
+usecase "23. Find customer" as UC23
+usecase "24. Modify customer" as UC24
+usecase "25. Delete customer" as UC25
+usecase "26. View archived product" as UC26
+usecase "27. View customer" as UC27
+usecase "28. View staff" as UC28
+usecase "29. Edit permission" as UC29
+}
+ad -right-|> st
+ad -- UC11
+ad -- UC29
+ad -- UC12
+UC13 .up.> UC12 : <<extends>>
+UC28 .up.> UC11 : <<extends>>
+st -- UC3
+UC4 .up.> UC3 : <<extends>>
+UC26 .right.> UC4 : <<extends>>
+
+st -- UC2
+st -- UC1
+UC5 .up.> UC1 : <<extends>>
+UC10 .up.> UC1 : <<extends>>
+st -- UC6
+st -- UC7
+st -- UC8
+UC8 .down.> UC9 : <<includes>>
+st -- UC14
+st -- UC15
+UC18 .up.> UC15 : <<extends>>
+st -- UC16
+UC17 .up.> UC16 : <<extends>>
+UC19 .up.> UC16 : <<extends>>
+st -- UC20
+st -- UC21
+st -- UC22
+st -- UC23
+UC27 .up.> UC23 : <<extends>>
+st -- UC24
+UC25 .up.> UC24 : <<extends>>
+
+@enduml

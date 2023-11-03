@@ -1,10 +1,12 @@
 @startuml
-
-class Customer {
+abstract Person {
   -String id
   -String name
   -String phone
   -String address
+}
+
+class Customer {
   +Customer()
   +{static} List<Customer> findCustomer(String name)
   +{static} void addCustomer(Customer customer)
@@ -13,11 +15,7 @@ class Customer {
 }
 
 class Supplier {
-  -String id
-  -String name
   -String email
-  -String phone
-  -String address
   -String note
   +Supplier()
   +{static} List<Supplier> findSupplier(String name)
@@ -40,14 +38,10 @@ class Permission {
 }
 
 class Staff {
-  -String id
-  -Perrmission permission
-  -String name
+  -Permission permission
   -String username
   -String password
   -String role
-  -String email
-  -String phone
   -String citizenId
   -String note
   +Staff()
@@ -136,7 +130,7 @@ class SaleProduct {
 }
 
 class ImportedProduct {
-  -Interger index
+  -Integer index
   -Long price
   -String unit
   -Product product
@@ -145,7 +139,11 @@ class ImportedProduct {
   +ImportedProduct()
 }
 
-ImportBill --|> Bill
+Customer --|> Person
+Staff --|> Person
+Supplier --|> Person
+
+ImportBill -up-|> Bill
 WarrantyBill --|> Bill 
 SaleBill --|> Bill 
 
@@ -159,14 +157,13 @@ ImportedProduct --* ImportBill
 
 Customer o-- WarrantyBill 
 Customer o-- SaleBill 
-ImportBill --o Supplier
+ImportBill -right-o Supplier
 Product --o Supplier
 
 Staff o-- Bill
 
 Staff -- Permission 
 
-Staff -- Customer
 
 Category -- Product
 @enduml

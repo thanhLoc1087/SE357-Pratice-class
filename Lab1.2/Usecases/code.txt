@@ -54,7 +54,7 @@ usecase "16. Find supplier" as UC16
 usecase "17. View change history of supplier" as UC17
 usecase "18. Delete supplier" as UC18
 usecase "19. View supplier" as UC19
-usecase "20. Register" as UC20
+usecase "20. Register account" as UC20
 usecase "21. Authenticatication" as UC21
 usecase "22. Create customer" as UC22
 usecase "23. Find customer" as UC23
@@ -64,11 +64,14 @@ usecase "26. View archived product" as UC26
 usecase "27. View customer" as UC27
 usecase "28. View staff" as UC28
 usecase "29. Edit permission" as UC29
+usecase "30. Add staff" as UC30
 }
 ad -right-|> st
 ad -- UC11
+ad -- UC30
 ad -- UC29
 ad -- UC12
+ad -- UC20
 UC13 .up.> UC12 : <<extends>>
 UC28 .up.> UC11 : <<extends>>
 st -- UC3
@@ -89,7 +92,6 @@ UC18 .up.> UC15 : <<extends>>
 st -- UC16
 UC17 .up.> UC16 : <<extends>>
 UC19 .up.> UC16 : <<extends>>
-st -- UC20
 st -- UC21
 st -- UC22
 st -- UC23

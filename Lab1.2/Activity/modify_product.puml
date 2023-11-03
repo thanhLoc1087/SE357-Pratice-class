@@ -1,0 +1,23 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display Product list ;
+|#White|Product|
+:Choose a Product ;
+:Press button Update ;
+|#lightgray|System|
+:Prompts user to enter Product information ;
+|#White|Product|
+repeat
+  :Enter new Product information and submit ;
+backward:Display an error message and prompt the user to re-enter the information;
+repeat while (Check if the information is valid or not) is (INVALID)
+-> VALID;
+|#pink|DATABASE|
+:Store new Product's information in the database ; 
+|#lightgray|System|
+:Display the new Product in the Product list ;
+stop
+
+@enduml

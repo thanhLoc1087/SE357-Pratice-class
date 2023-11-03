@@ -1,0 +1,18 @@
+@startuml
+
+|#lightgray|System|
+start
+repeat
+:Display Product list ;
+|#White Staff|
+:Choose a Product ;
+:Press button Delete ;
+repeat while (Confirm Delete Product dialog) is (No) 
+-> Yes;
+|#pink|DATABASE|
+:Delete the Product from the database ; 
+|#lightgray|System|
+:Display new Product list ;
+stop
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+|#White|Staff|
+start
+:Search for the product warranty status;
+|#lightgray|System|
+:Shows the warranty status of the product;
+:Exports the warranty invoice;
+|#pink|DATABASE|
+:Adds a new warranty history for that product;
+stop
+
+@enduml

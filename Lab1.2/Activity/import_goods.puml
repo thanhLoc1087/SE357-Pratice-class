@@ -1,0 +1,23 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display Home page;
+|#White|Staff|
+:Choose Import goods button;
+:Enter the information of the agency;
+:Chooses the supplier from the recorded suppliers;
+:Enters the information of all the goods (name, price, quantity);
+|#lightgray|System|
+:Calculates the total of the entire transaction;
+|#White|Staff|
+:Chooses the payment method that they used when paying the supplier;
+:Chooses update the in-stock products;
+|#pink|DATABASE|
+:Updates the in-stock products;
+|#lightgray|System|
+:Exports a purchase invoice;
+:Show successfully notification;
+stop
+
+@enduml

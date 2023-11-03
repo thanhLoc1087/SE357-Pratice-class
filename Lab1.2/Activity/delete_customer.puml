@@ -1,0 +1,18 @@
+@startuml
+
+|#lightgray|System|
+start
+repeat
+:Display Customer list ;
+|#White|Staff|
+:Choose a Customer ;
+:Press button Delete ;
+repeat while (Confirm Delete Customer dialog) is (No) 
+-> Yes;
+|#pink|DATABASE|
+:Delete the Customer from the database ; 
+|#lightgray|System|
+:Display new Customer list ;
+stop
+
+@enduml

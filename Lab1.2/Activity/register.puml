@@ -1,0 +1,23 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display Login page;
+|#White|Staff|
+:Select register function;
+|#lightgray|System|
+:Show register form;
+repeat
+|#White|Staff|
+:Fill in the register form with personal information;
+|#White|Staff|
+backward:Display an error message and prompt the user to re-enter the information;
+repeat while (Validate the entered information) is (INVALID)
+-> VALID;
+|#pink|DATABASE|
+:Create new staff account ; 
+|#lightgray|System|
+:Display Login page;
+stop
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+|#White|Staff|
+start
+:Click the archived list button;
+|#pink|DATABASE|
+:Select data from database;
+|#lightgray|System|
+:Displays all archived products on the screen;
+stop
+
+@enduml

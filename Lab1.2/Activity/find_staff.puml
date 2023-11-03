@@ -1,0 +1,38 @@
+@startuml
+
+|#lightgray|System|
+start
+repeat
+:Display Staff list ;
+|#White|Staff|
+:Select Search field and enter key words ;
+
+|#lightgray|System|
+' backward:Display empty result notification;@startuml
+
+|#lightgray|System|
+start
+repeat
+:Display Staff list ;
+|#White|Staff|
+:Select Search field and enter key words ;
+|#lightgray|System|
+backward:Display empty result notification;
+|#pink|DATABASE|
+repeat while (Query data related to key word) is (EMPTY RESULT) 
+-> N-EMPTY RESULT;
+|#lightgray|System|
+:Display data ; 
+stop
+ 
+@enduml
+
+
+|#pink|DATABASE|
+repeat while (Query data related to key word) is (EMPTY RESULT) 
+-> N-EMPTY RESULT;
+|#lightgray|System|
+:Display data ; 
+stop
+ 
+@enduml

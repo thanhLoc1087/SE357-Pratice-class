@@ -1,0 +1,14 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display list supplier;
+|#White|Staff|
+:Choose a supplier to see list product of that supplier;
+|#pink|DATABASE|
+:Select data from database;
+|#lightgray|System|
+:Show all products of supplier;
+stop
+
+@enduml

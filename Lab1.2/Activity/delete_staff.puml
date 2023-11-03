@@ -1,0 +1,18 @@
+@startuml
+
+|#lightgray|System|
+start
+repeat
+:Display Staff list ;
+|#White|Staff|
+:Choose a Staff ;
+:Press button Delete ;
+repeat while (Confirm Delete staff dialog) is (No) 
+-> Yes;
+|#pink|DATABASE|
+:Delete the staff from the database ; 
+|#lightgray|System|
+:Display new Staff list ;
+stop
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display Login page;
+repeat
+:Prompt the user to enter username and password;
+|#White|Staff|
+:Enter username and password;
+|#pink|DATABASE|
+repeat while (Verify the information in the database) is (INVALID)
+|#White|Staff|
+:Fill in the register form with personal information;
+|#White|Staff|
+-> VALID;
+|#lightgray|System|
+:Display Home page;
+stop
+
+@enduml

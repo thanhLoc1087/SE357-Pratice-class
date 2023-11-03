@@ -1,0 +1,22 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display supplier list;
+|#White|Staff|
+:Searches for the supplier that needs to be viewed by their name;
+|#lightgray|System|
+:Displays all suppliers that match keyword;
+|#White|Staff|
+:Chooses which supplier to inspect;
+|#lightgray|System|
+:Shows a table to show changes of the supplier profile, the changes are sorted descendingly by day;
+|#White|Staff|
+:Find a specified day to inspect;
+|#pink|DATABASE|
+:Select data from database;
+|#lightgray|System|
+:Shows only the changes made on that day;
+stop
+
+@enduml

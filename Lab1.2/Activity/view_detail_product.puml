@@ -1,0 +1,14 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display product list;
+|#White|Staff|
+:Search for product name;
+|#pink|DATABASE|
+:Select data from database;
+|#lightgray|System|
+:Display detailed information of product;
+stop
+
+@enduml

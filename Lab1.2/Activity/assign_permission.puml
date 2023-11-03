@@ -1,0 +1,16 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display list of Staffs and Permissions;
+:Prompt admin to enter username and password;
+|#White|Admin|
+:Choose staff need to change permission;
+:Choose permission to assign to the staff;
+|#pink|DATABASE|
+:Change permission of staff in database;
+|#lightgray|System|
+:Display an successfully notification;
+stop
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display list product;
+|#White|Staff|
+:Select product to sell;
+:Fill in information of customer;
+|#pink|DATABASE|
+:Save invoice to the database;
+|#lightgray|System|
+:Export invoice;
+stop
+
+@enduml

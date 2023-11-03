@@ -1,0 +1,23 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display Supplier list ;
+|#White|Supplier|
+:Choose a Supplier ;
+:Press button Update ;
+|#lightgray|System|
+:Prompts user to enter Supplier information ;
+|#White|Supplier|
+repeat
+  :Enter new Supplier information and submit ;
+backward:Display an error message and prompt the user to re-enter the information;
+repeat while (Check if the information is valid or not) is (INVALID)
+-> VALID;
+|#pink|DATABASE|
+:Store new Supplier's information in the database ; 
+|#lightgray|System|
+:Display the new Supplier in the Supplier list ;
+stop
+
+@enduml

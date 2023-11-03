@@ -1,0 +1,18 @@
+@startuml
+
+|#lightgray|System|
+start
+repeat
+:Display Supplier list ;
+|#White|Staff|
+:Choose a Supplier ;
+:Press button Delete ;
+repeat while (Confirm Delete Supplier dialog) is (No) 
+-> Yes;
+|#pink|DATABASE|
+:Delete the Supplier from the database ; 
+|#lightgray|System|
+:Display new Supplier list ;
+stop
+
+@enduml

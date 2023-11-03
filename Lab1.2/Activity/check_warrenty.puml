@@ -1,0 +1,15 @@
+@startuml
+
+|#lightgray|System|
+start
+:Display customer profile;
+|#White|Staff|
+:Finds the product in the purchased product list of the customer by product name;
+:Choose show warrenty of product;
+|#pink|DATABASE|
+:Select data from database;
+|#lightgray|System|
+:Shows warranty date, warranty history and warranty status of the product;
+stop
+
+@enduml

@@ -1,0 +1,172 @@
+@startuml
+
+class Customer {
+  -String id
+  -String name
+  -String phone
+  -String address
+  +Customer()
+  +{static} List<Customer> findCustomer(String name)
+  +{static} void addCustomer(Customer customer)
+  +{static} Customer modifyCustomer(Customer customer)
+ +{static} List<Customer> viewCustomer()
+}
+
+class Supplier {
+  -String id
+  -String name
+  -String email
+  -String phone
+  -String address
+  -String note
+  +Supplier()
+  +{static} List<Supplier> findSupplier(String name)
+  +{static} List<Supplier> viewProductFromSupplier(String id)
+  +{static} void addSupplier(Supplier supplier)
+  +{static} Supplier modifySupplier(Supplier supplier)
+  +{static} void deleteSupplier(String id)
+  +{static} List<Supplier> viewSupplier()
+}
+
+class Permission {
+  -String id
+  -Staff staff
+  -String name
+  -String desciption
+  -String itemId
+  -String type
+  +Permission()
+  +{static} Permission modifyPermission(Permission permission)
+}
+
+class Staff {
+  -String id
+  -Perrmission permission
+  -String name
+  -String username
+  -String password
+  -String role
+  -String email
+  -String phone
+  -String citizenId
+  -String note
+  +Staff()
+  +{static} List<Staff> findStaff(String name)
+  +{static} void addStaff(Staff staff)
+  +{static} Staff modifyStaff(Supplier staff)
+  +{static} void deleteStaff(String id)
+  +{static} List<Staff> viewStaff()
+}
+
+class Category {
+  -String id
+  -String name
+  +Category()
+}
+
+class Product {
+  -String id
+  -String name
+  -Supplier supplier
+  -Category category
+  -Long price
+  -Integer quantity
+  -Date warrantyPeriod
+  -Boolean isAvailable
+  +Product()
+  +{static} List<Product> findProduct(String name)
+  +{static} void addProduct(Product product)
+  +{static} Product modifyProduct(Product product)
+  +{static} void deleteProduct(String id)
+  +{static} List<Supplier> viewSupplierOfProduct(String id)
+  +{static} List<Product> viewArchivedProduct()
+
+}
+
+abstract Bill{
+  -Staff staff
+  -String note
+  -Date createDay
+  -String id
+  +{abstract} void output()
+}
+
+class SaleBill {
+  -Customer customer
+  -String paymentMethod
+  -Float discount
+  +SaleBill(SaleProduct saleProduct)
+  +void output()
+}
+
+class WarrantyBill {
+  -Customer customer
+  -String paymentMethod
+  -Float discount
+  +WarrantyBill(WarrantyProduct warrantyProduct)
+  +{static}boolean checkWarrantyPeriod()
+  +void output()
+}
+
+class ImportBill {
+  -Supplier supplier
+  +ImportBill(ImportedProduct importedProduct)
+  +void output()
+}
+
+
+class WarrantyProduct {
+  -String id
+  -String note
+  -String status
+  -Product product
+  -Integer quantity
+  -WarrantyBill warrantyBill
+  +WarrantyProduct()
+}
+
+class SaleProduct {
+  -String id
+  -Long price
+  -String unit
+  -Product product
+  -Integer quantity
+  -SaleBill saleBill
+  +SaleProduct()
+}
+
+class ImportedProduct {
+  -Interger index
+  -Long price
+  -String unit
+  -Product product
+  -Integer quantity
+  -ImportedBill importedBill
+  +ImportedProduct()
+}
+
+ImportBill --|> Bill
+WarrantyBill --|> Bill 
+SaleBill --|> Bill 
+
+WarrantyProduct --* Product 
+SaleProduct --* Product 
+ImportedProduct --* Product 
+
+WarrantyProduct --* WarrantyBill 
+SaleProduct --* SaleBill 
+ImportedProduct --* ImportBill 
+
+Customer o-- WarrantyBill 
+Customer o-- SaleBill 
+ImportBill --o Supplier
+Product --o Supplier
+
+Staff o-- Bill
+
+Staff -- Permission 
+
+Staff -- Customer
+
+Category -- Product
+@enduml

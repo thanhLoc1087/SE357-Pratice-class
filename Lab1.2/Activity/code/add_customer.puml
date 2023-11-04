@@ -10,6 +10,7 @@ start
 |#White|Staff|
 repeat
   :Enter Customer information and submit ;
+  |#lightgray|System|
 backward:Display an error message and prompt the user to re-enter the information;
 repeat while (Check if the information is valid or not) is (INVALID)
 -> VALID;

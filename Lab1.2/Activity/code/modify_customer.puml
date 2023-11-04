@@ -3,14 +3,15 @@
 |#lightgray|System|
 start
 :Display Customer list ;
-|#White|Customer|
+|#White|Staff|
 :Choose a Customer ;
 :Press button Update ;
 |#lightgray|System|
 :Prompts user to enter Customer information ;
-|#White|Customer|
+|#White|Staff|
 repeat
   :Enter new Customer information and submit ;
+  |#lightgray|System|
 backward:Display an error message and prompt the user to re-enter the information;
 repeat while (Check if the information is valid or not) is (INVALID)
 -> VALID;
